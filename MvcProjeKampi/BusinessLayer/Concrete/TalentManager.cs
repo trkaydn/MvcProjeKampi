@@ -21,5 +21,10 @@ namespace BusinessLayer.Concrete
         {
             return _talentDal.Get(x => x.TalentID == id);
         }
+
+        public List<Talent> GetList()
+        {
+            return _talentDal.List();
+        }
     }
 }

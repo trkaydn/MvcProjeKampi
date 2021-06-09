@@ -10,5 +10,7 @@ namespace BusinessLayer.Abstract
     public interface ITalentService
     {
         Talent GetByID(int id);
+
+        List<Talent> GetList();
     }
 }

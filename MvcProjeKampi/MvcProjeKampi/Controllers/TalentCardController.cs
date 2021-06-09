@@ -14,8 +14,8 @@ namespace MvcProjeKampi.Controllers
        
         public ActionResult Index()
         {
-            var myTalent = tm.GetByID(1); 
-            return View(myTalent);
+            var talents = tm.GetList();
+            return View(talents);
         }
     }
 }

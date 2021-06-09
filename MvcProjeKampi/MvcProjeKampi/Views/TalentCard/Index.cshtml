@@ -1,4 +1,5 @@
-﻿@model EntityLayer.Concrete.Talent
+﻿@using EntityLayer.Concrete
+@model List<Talent>
 @{
     Layout = null;
 }
@@ -6,7 +7,7 @@ s
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Yetenek Kartım - @Model.Name</title>
+    <title>Yetenek Kartım</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Skills Profile Widget template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
@@ -43,46 +44,43 @@ s
             <div class="main-row">
                 <!-- main-row-one -->
                 <div class="profile-grid logo wthree">
-                    <img src="@Model.Photo" alt="@Model.Name" style="width:125px;height:125px">
-                    <h2>@Model.Name</h2>
-                    <p>@Model.Title.Substring(0, 58)</p>
-                    <p>@Model.Title.Substring(58, 55)</p>
-                    <p>@Model.Title.Substring(113)</p>
+                    <div class="profile-grid logo wthree">
+                        <img src="@Model[0].AdminPhoto" alt="@Model[0].AdminName" style="width:125px;height:125px">
+                        <h2>@Model[0].AdminName</h2>
+                        <p>@Model[0].AdminTitle.Substring(0, 50)</p>
+                        <p>@Model[0].AdminTitle.Substring(50, 51)</p>
+                        <p>@Model[0].AdminTitle.Substring(101)</p>
+                    </div>
+                    <h3 class="title">Yetenekler</h3>
+                    <div class="col-md-6 skills-right bar_group group_ident-1">
+                        @foreach (var talent in Model)
+                        {
+                            <div class='bar_group__bar thin' label='@talent.TalentName &nbsp;&nbsp; @talent.TalentValue%' value='@talent.TalentValue'></div>
 
-                </div>
-                <h3 class="title">Yetenekler</h3>
-                <div class="col-md-6 skills-right bar_group group_ident-1">
+                        }
 
-                    <div class='bar_group__bar thin' label='@Model.Talent1 &nbsp;&nbsp; @Model.Talent1Val%' value='@Model.Talent1Val'></div>
-                    <div class='bar_group__bar thin' label='@Model.Talent2 &nbsp;&nbsp; @Model.Talent2Val%' value='@Model.Talent2Val'></div>
-                    <div class='bar_group__bar thin' label='@Model.Talent3 &nbsp;&nbsp; @Model.Talent3Val%' value='@Model.Talent3Val'></div>
-                    <div class='bar_group__bar thin' label='@Model.Talent4 &nbsp;&nbsp; @Model.Talent4Val%' value='@Model.Talent4Val'></div>
-                    <div class='bar_group__bar thin' label='@Model.Talent5 &nbsp;&nbsp; @Model.Talent5Val%' value='@Model.Talent5Val'></div>
-                    <div class='bar_group__bar thin' label='@Model.Talent6 &nbsp;&nbsp; @Model.Talent6Val%' value='@Model.Talent6Val'></div>
-                    <div class='bar_group__bar thin' label='@Model.Talent7 &nbsp;&nbsp; @Model.Talent7Val%' value='@Model.Talent7Val'></div>
-                    <div class='bar_group__bar thin' label='@Model.Talent8 &nbsp;&nbsp; @Model.Talent8Val%' value='@Model.Talent8Val'></div>
-                    <div class='bar_group__bar thin' label='@Model.Talent9 &nbsp;&nbsp; @Model.Talent9Val%' value='@Model.Talent9Val'></div>
-                    <div class='bar_group__bar thin' label='@Model.Talent10 &nbsp;&nbsp; @Model.Talent10Val%' value='@Model.Talent10Val'></div>
+                    </div>
+
+                    <!--bar-js-->
+                    <script src="~/AdminLTE-3.0.4/web/js/bars.js"></script>
+                    <div class="social-icons agileits">
+                        <ul>
+                            <li><a href="https://www.facebook.com/tarik1846/"></a></li>
+                            <li><a href="#" class="fb"></a></li>
+                            <li><a href="https://www.linkedin.com/in/tar%C4%B1k-ayd%C4%B1n-1083a6212/" class="be"></a></li>
+                            <li><a href="#" class="gg"></a></li>
+                        </ul>
+                    </div>
+                    <div class="clear"> </div>
                 </div>
-                <!--bar-js-->
-                <script src="~/AdminLTE-3.0.4/web/js/bars.js"></script>
-                <div class="social-icons agileits">
-                    <ul>
-                        <li><a href="https://www.facebook.com/tarik1846/"></a></li>
-                        <li><a href="#" class="fb"></a></li>
-                        <li><a href="https://www.linkedin.com/in/tar%C4%B1k-ayd%C4%B1n-1083a6212/" class="be"></a></li>
-                        <li><a href="#" class="gg"></a></li>
-                    </ul>
-                </div>
-                <div class="clear"> </div>
             </div>
+            <!-- copyright -->
+            <div class="copyright">
+                <p> © 2016 Skills Profile Widget . All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts.</a></p>
+            </div>
+            <!-- //copyright -->
         </div>
-        <!-- copyright -->
-        <div class="copyright">
-            <p> © 2016 Skills Profile Widget . All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts.</a></p>
+        <!-- main -->
         </div>
-        <!-- //copyright -->
-    </div>
-    <!-- main -->
 </body>
 </html>
