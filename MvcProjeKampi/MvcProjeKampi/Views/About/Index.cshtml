@@ -1,0 +1,35 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Hakkımda Veri Listesi</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Hakkımda Başlığı</th>
+        <th>Aktif/Pasif Yap</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.AboutID</td>
+            <td>Başlık</td>
+            @if (item.IsActivated)
+            {
+                <td><a href="/About/ActivateOrPassive/@item.AboutID/" class="btn btn-danger">Pasif Yap</a></td>
+
+            }
+            else
+            {
+                <td><a href="/About/ActivateOrPassive/@item.AboutID/" class="btn btn-warning">Aktif Yap</a></td>
+            }
+        </tr>
+    }
+</table>
+
+@Html.Action("AddAbout", "About")
+
+<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
