@@ -1,10 +1,8 @@
 ﻿@using EntityLayer.Concrete
 @model List<Heading>
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
-}
-@{
+    ViewBag.Title = "MyHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
     string color = "";
 }
 
@@ -48,9 +46,6 @@
                             </th>
                             <th style="width: 15%">
                                 Oluşturan Yazar
-                            </th>
-                            <th style="width: 10%">
-                                Durum
                             </th>
                             <th style="width: 8%" class="text-center">
                                 Kategori
@@ -99,17 +94,6 @@
                                         </li>
                                     </ul>
                                 </td>
-                                @*Ödev*@
-                                @if (item.HeadingStatus)
-                                {
-                                    <td><span class="badge badge-success">Aktif</span> </td>
-
-                                }
-                                else
-                                {
-                                    <td><span class="badge badge-danger">Pasif</span> </td>
-
-                                }
                                 <td class="project-state">
                                     <span class="@color">@item.Category.CategoryName</span>
                                 </td>
@@ -119,30 +103,18 @@
                                         </i>
                                         Yazılar
                                     </a>
-                                    <a class="btn btn-info btn-sm" href="/Heading/EditHeading/@item.HeadingID">
+                                    <a class="btn btn-info btn-sm" href="/WriterPanel/EditHeading/@item.HeadingID">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Düzenle
                                     </a>
-                                    @*Ödev*@
-                                    @switch (item.HeadingStatus)
-                                    {
-                                        case true:
-                                            <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingID">
-                                                <i class="fas fa-trash">
-                                                </i>
-                                                Pasif Yap
-                                            </a>
-                                            break;
 
-                                        case false:
-                                            <a class="btn btn-success btn-sm" href="/Heading/ActivateHeading/@item.HeadingID">
-                                                <i class="fas fa-trash">
-                                                </i>
-                                                Aktif Yap
-                                            </a>
-                                            break;
-                                    }
+                                    <a class="btn btn-danger btn-sm" href="/WriterPanel/DeleteHeading/@item.HeadingID">
+                                        <i class="fas fa-trash">
+                                        </i>
+                                        Sil
+                                    </a>
+
 
                                 </td>
                             </tr>
@@ -156,4 +128,4 @@
     </section>
 </body>
 </html>
-<a href="/Heading/AddHeading/" class="btn btn-primary">Yeni Başlık Girişi</a>
+<a href="/WriterPanel/NewHeading/" class="btn btn-primary">Yeni Başlık Girişi</a>
