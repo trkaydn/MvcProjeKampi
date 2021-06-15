@@ -2,9 +2,12 @@
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using MvcProjeKampi.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
@@ -14,9 +17,11 @@ using System.Web.Security;
 
 namespace MvcProjeKampi.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         AdminManager cm = new AdminManager(new EfAdminDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
 
         public ActionResult Index()
         {
@@ -38,6 +43,39 @@ namespace MvcProjeKampi.Controllers
             return View();
         }
 
+        public ActionResult WriterLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult WriterLogin(Writer p)
+        {
+            //google reCapthca
+            var response = Request["g-recaptcha-response"];
+            const string secret = "6LeFPDYbAAAAANIPSB0RquXYbWJw9s5JchcLsdxw";
+            var client = new WebClient();
+            var reply =
+                client.DownloadString(
+                    string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response));
+            var captchaResponse = JsonConvert.DeserializeObject<CaptchaResponse>(reply);
+
+            if (!captchaResponse.Success)
+            {
+                ViewBag.Message = "Lütfen reCapthca doğrulayınız.";
+                return View();
+            }
+
+            var writerinfo = wm.GetByMailPassword(p);
+            if (writerinfo != null)
+            {
+                FormsAuthentication.SetAuthCookie(writerinfo.WriterMail, false);
+                Session["WriterMail"] = writerinfo.WriterMail;
+                return RedirectToAction("MyContent", "WriterPanelContent");
+            }
+            ViewBag.Message = "Kullanıcı adı veya şifre hatalı.";
+            return View();
+        }
 
         //TEST İÇİN HASHLEME VE ÇÖZME (Mimariye taşındı))
         //public ActionResult Hashleme()

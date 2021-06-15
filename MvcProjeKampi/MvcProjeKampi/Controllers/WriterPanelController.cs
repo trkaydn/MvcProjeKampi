@@ -13,6 +13,7 @@ namespace MvcProjeKampi.Controllers
     {
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
 
         public ActionResult WriterProfile()
         {
@@ -21,7 +22,9 @@ namespace MvcProjeKampi.Controllers
 
         public ActionResult MyHeading()
         {
-            var values = hm.GetListByWriter();
+            string WriterMail = (string)Session["WriterMail"];
+            int writerid = wm.GetIDByMail(WriterMail);
+            var values = hm.GetListByWriter(writerid);
             return View(values);
         }
 
@@ -43,7 +46,10 @@ namespace MvcProjeKampi.Controllers
         public ActionResult NewHeading(Heading p)
         {
             p.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            p.WriterID = 4;
+
+            string WriterMail = (string)Session["WriterMail"];
+            int writerid = wm.GetIDByMail(WriterMail);
+            p.WriterID = writerid;
             p.HeadingStatus = true;
             hm.HeadingAdd(p);
             return RedirectToAction("MyHeading");

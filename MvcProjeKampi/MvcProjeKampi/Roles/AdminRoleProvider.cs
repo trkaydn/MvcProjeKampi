@@ -42,7 +42,11 @@ namespace MvcProjeKampi.Roles
         {
             AdminManager cm = new AdminManager(new EfAdminDal());
             var x = cm.GetByUserName(username);
-            return new string[] { x.AdminRole };
+            if (x != null)
+                return new string[] { x.AdminRole };
+            else
+                //writer giriş yaptıysa hata almamak için
+                return new string[] { "B" };
         }
 
         public override string[] GetUsersInRole(string roleName)
