@@ -15,17 +15,19 @@ namespace MvcProjeKampi.Controllers
     {
         MessageManager mm = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
-
+        AdminManager adm = new AdminManager(new EfAdminDal());
 
         public ActionResult Inbox()
         {
-            var messagelist = mm.GetListInbox();
+            var p = Session["AdminUserName"].ToString();
+            var messagelist = mm.GetListInbox(p);
             return View(messagelist);
         }
 
         public ActionResult Sendbox()
         {
-            var messagelist = mm.GetListSendbox();
+            var p = Session["AdminUserName"].ToString();
+            var messagelist = mm.GetListSendbox(p);
             return View(messagelist);
         }
 
@@ -62,7 +64,8 @@ namespace MvcProjeKampi.Controllers
 
 
             p.MessageDate = DateTime.Now;
-            p.SenderMail = "admin@gmail.com"; //sesiondan alınacak
+            var sender = Session["AdminUserName"].ToString();
+            p.SenderMail = sender;
             mm.MessageAdd(p);
             return RedirectToAction("SendBox");
         }
@@ -70,7 +73,8 @@ namespace MvcProjeKampi.Controllers
         //ÖDEV: taslaklar için  getlistfordrafts (taslakları listeleyen metot),  action ve view oluşturuldu 
         public ActionResult Drafts()
         {
-            var draflist = mm.GetListDrafts();
+            var p = Session["AdminUserName"].ToString();
+            var draflist = mm.GetListDrafts(p);
             return View(draflist);
         }
 

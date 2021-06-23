@@ -18,18 +18,27 @@ namespace MvcProjeKampi.Controllers
 
         public ActionResult Inbox()
         {
-            var messagelist = mm.GetListInbox();
+            string p = Session["WriterMail"].ToString();
+            var messagelist = mm.GetListInbox(p);
             return View(messagelist);
         }
 
         public ActionResult Sendbox()
         {
-            var messagelist = mm.GetListSendbox();
+            string p = Session["WriterMail"].ToString();
+            var messagelist = mm.GetListSendbox(p);
             return View(messagelist);
         }
 
         public PartialViewResult MessageListMenu()
         {
+            var p = Session["WriterMail"].ToString();
+            ViewBag.Inbox = mm.GetListInbox(p).Count();
+            ViewBag.Sendbox = mm.GetListSendbox(p).Count();
+            ViewBag.Draft = mm.GetListDrafts(p).Count();
+            //okundu-okunmadı mesaj sayısı:
+            ViewBag.Readed = mm.GetListInbox(p).Where(x => x.IsReaded).Count();
+            ViewBag.UnReaded = mm.GetListInbox(p).Where(x => x.IsReaded == false).Count();
             return PartialView();
         }
 
@@ -78,14 +87,16 @@ namespace MvcProjeKampi.Controllers
 
 
             p.MessageDate = DateTime.Now;
-            p.SenderMail = "admin@gmail.com"; //sesiondan alınacak
+            var sender = Session["WriterMail"].ToString();
+            p.SenderMail = sender;
             mm.MessageAdd(p);
             return RedirectToAction("SendBox");
         }
 
         public ActionResult Drafts()
         {
-            var draflist = mm.GetListDrafts();
+            string p = Session["WriterMail"].ToString();
+            var draflist = mm.GetListDrafts(p);
             return View(draflist);
         }
 

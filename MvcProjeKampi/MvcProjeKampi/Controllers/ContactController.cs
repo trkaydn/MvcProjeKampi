@@ -13,7 +13,6 @@ namespace MvcProjeKampi.Controllers
     {
         ContactManager cm = new ContactManager(new EfContactDal());
         MessageManager mm = new MessageManager(new EfMessageDal());
-
         ContactValidator cv = new ContactValidator();
 
 
@@ -32,13 +31,14 @@ namespace MvcProjeKampi.Controllers
         //ÖDEV : partial'da mesaj,taslak sayılarının görünmesi sağlandı.
         public PartialViewResult MessageListMenu()
         {
+            var p = Session["AdminUserName"].ToString();
             ViewBag.Contact = cm.GetList().Count();
-            ViewBag.Inbox = mm.GetListInbox().Count();
-            ViewBag.Sendbox = mm.GetListSendbox().Count();
-            ViewBag.Draft = mm.GetListDrafts().Count();
+            ViewBag.Inbox = mm.GetListInbox(p).Count();
+            ViewBag.Sendbox = mm.GetListSendbox(p).Count();
+            ViewBag.Draft = mm.GetListDrafts(p).Count();
             //okundu-okunmadı mesaj sayısı:
-            ViewBag.Readed = mm.GetListInbox().Where(x => x.IsReaded).Count();
-            ViewBag.UnReaded = mm.GetListInbox().Where(x => x.IsReaded==false).Count();
+            ViewBag.Readed = mm.GetListInbox(p).Where(x => x.IsReaded).Count();
+            ViewBag.UnReaded = mm.GetListInbox(p).Where(x => x.IsReaded==false).Count();
             return PartialView();
         }
     }

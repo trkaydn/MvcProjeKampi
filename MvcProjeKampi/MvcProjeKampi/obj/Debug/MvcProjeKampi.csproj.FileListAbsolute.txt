@@ -263,3 +263,7 @@ C:\Users\Tarik Aydin\Desktop\Projects\MvcProjeKampi\MvcProjeKampi\bin\Newtonsoft
 C:\Users\Tarik Aydin\Desktop\Projects\MvcProjeKampi\MvcProjeKampi\bin\Antlr3.Runtime.pdb
 C:\Users\Tarik Aydin\Desktop\Projects\MvcProjeKampi\MvcProjeKampi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Tarik Aydin\Desktop\Projects\MvcProjeKampi\MvcProjeKampi\obj\Debug\MvcProjeKampi.csproj.CopyComplete
+C:\Users\Tarik Aydin\Desktop\Projects\MvcProjeKampi\MvcProjeKampi\bin\PagedList.dll
+C:\Users\Tarik Aydin\Desktop\Projects\MvcProjeKampi\MvcProjeKampi\bin\PagedList.Mvc.dll
+C:\Users\Tarik Aydin\Desktop\Projects\MvcProjeKampi\MvcProjeKampi\bin\PagedList.xml
+C:\Users\Tarik Aydin\Desktop\Projects\MvcProjeKampi\MvcProjeKampi\bin\PagedList.Mvc.xml

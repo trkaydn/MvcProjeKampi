@@ -46,7 +46,7 @@ namespace MvcProjeKampi.Roles
                 return new string[] { x.AdminRole };
             else
                 //writer giriş yaptıysa hata almamak için
-                return new string[] { "B" };
+                return new string[] { null};
         }
 
         public override string[] GetUsersInRole(string roleName)
