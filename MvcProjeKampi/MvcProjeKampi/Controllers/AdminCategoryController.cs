@@ -35,6 +35,7 @@ namespace MvcProjeKampi.Controllers
             if (results.IsValid)
             {
                 cm.CategoryAdd(p);
+                TempData["a"] = "1";
                 return RedirectToAction("Index");
             }
             else

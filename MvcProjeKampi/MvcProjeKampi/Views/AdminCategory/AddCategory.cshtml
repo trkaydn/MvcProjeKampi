@@ -11,7 +11,7 @@
 {
     <div class="form-group">
         @Html.Label("Kategori Adı")
-        @Html.TextBoxFor(x => x.CategoryName, new { @class ="form-control"})
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.CategoryName)
         <br /><br />
         @Html.Label("Açıklama")
@@ -19,6 +19,6 @@
         @Html.ValidationMessageFor(x => x.CategoryDescription)
 
         <br /><br />
-        <button class="btn btn-info">Kaydet</button>
+        <button class="btn btn-info" id="btn3">Kaydet</button>
     </div>
 }

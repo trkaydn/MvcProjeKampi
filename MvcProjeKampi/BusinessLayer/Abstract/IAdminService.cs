@@ -11,6 +11,15 @@ namespace BusinessLayer.Abstract
     {
         Admin GetByUserNamePassword(string UserName, string Password);
         Admin GetByUserName(string UserName);
+        List<Admin> GetList();
+
+        void AdminAdd(Admin admin);
+
+        Admin GetByID(int id);
+
+        void AdminDelete(Admin admin);
+
+        void AdminUpdate(Admin admin);
 
     }
 }

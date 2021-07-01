@@ -1,0 +1,57 @@
+﻿@using MvcProjeKampi.Models
+@model  List<UserClass>
+@{
+    ViewBag.Title = "Chart3";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Gün');
+        data.addColumn('number', '@Model[0].Role');
+        data.addColumn('number', '@Model[1].Role');
+        data.addColumn('number', '@Model[3].Role');
+
+      data.addRows([
+        [7, @Model[1].Count, @Model[0].Count, @Model[3].Count],
+        [6,  16, 1, 14],
+        [5, 12, 2, 11],
+        [4,  5, 3,  4],
+        [3,  6, 4,  5],
+        [2, 4, 5, 3],
+        [1, 0,0,0]
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Yazarların Başlık Sayıları',
+        },
+        width: 900,
+        height: 500,
+        axes: {
+          x: {
+            0: {side: 'top'}
+          }
+        }
+      };
+
+      var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+    </script>
+</head>
+<body>
+    <div id="line_top_x"></div>
+</body>
+</html>
+
+

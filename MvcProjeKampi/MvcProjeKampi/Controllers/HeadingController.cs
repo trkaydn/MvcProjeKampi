@@ -22,6 +22,12 @@ namespace MvcProjeKampi.Controllers
             return View(headingvalues);
         }
 
+        public ActionResult HeadingReport()
+        {
+            var headingvalues = hm.GetList();
+            return View(headingvalues);
+        }
+
         public ActionResult AddHeading()
         {
             List<SelectListItem> valuecategory = (from x in cm.GetList()
@@ -95,5 +101,6 @@ namespace MvcProjeKampi.Controllers
             hm.HeadingDelete(headingvalue);
             return RedirectToAction("Index");
         }
+
     }
 }
