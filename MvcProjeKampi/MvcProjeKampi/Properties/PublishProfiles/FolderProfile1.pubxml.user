@@ -7208,22 +7208,22 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/BusinessLayer.dll">
-      <publishTime>07/07/2021 14:21:26</publishTime>
+      <publishTime>07/07/2021 14:43:49</publishTime>
     </File>
     <File Include="bin/BusinessLayer.dll.config">
       <publishTime>04/23/2021 14:25:52</publishTime>
     </File>
     <File Include="bin/BusinessLayer.pdb">
-      <publishTime>07/07/2021 14:21:26</publishTime>
+      <publishTime>07/07/2021 14:43:49</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>07/07/2021 14:21:26</publishTime>
+      <publishTime>07/07/2021 14:43:49</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll.config">
       <publishTime>04/17/2021 15:07:26</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>07/07/2021 14:21:26</publishTime>
+      <publishTime>07/07/2021 14:43:49</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>04/16/2020 20:38:42</publishTime>
@@ -7250,10 +7250,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MvcProjeKampi.dll">
-      <publishTime>07/07/2021 14:21:30</publishTime>
+      <publishTime>07/07/2021 14:43:52</publishTime>
     </File>
     <File Include="bin/MvcProjeKampi.pdb">
-      <publishTime>07/07/2021 14:21:30</publishTime>
+      <publishTime>07/07/2021 14:43:52</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>04/22/2019 01:06:16</publishTime>
@@ -7790,7 +7790,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/11/2021 22:14:04</publishTime>
     </File>
     <File Include="Views/AdminCategory/Index.cshtml">
-      <publishTime>07/01/2021 15:33:17</publishTime>
+      <publishTime>07/07/2021 14:41:54</publishTime>
     </File>
     <File Include="Views/Authorization/AddAdmin.cshtml">
       <publishTime>07/05/2021 14:38:02</publishTime>
