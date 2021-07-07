@@ -26,5 +26,22 @@ namespace BusinessLayer.Concrete
         {
             return _talentDal.List();
         }
+
+        public void TalentAdd(Talent talent)
+        {
+           
+            _talentDal.Insert(talent);
+        }
+
+        public void TalentDelete(Talent talent)
+        {
+            _talentDal.Delete(talent);
+        }
+
+        public void TalentUpdate(Talent talent)
+        {
+      
+            _talentDal.Update(talent);
+        }
     }
 }

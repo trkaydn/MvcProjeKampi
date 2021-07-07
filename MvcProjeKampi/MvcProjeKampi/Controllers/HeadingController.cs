@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using MvcProjeKampi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -100,6 +101,31 @@ namespace MvcProjeKampi.Controllers
             headingvalue.HeadingStatus = true;
             hm.HeadingDelete(headingvalue);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Calendar()
+        {
+            return View();
+        }
+
+        public JsonResult GetCalendarEvents()
+        {
+            List<CalendarEvent> eventItems = new List<CalendarEvent>();
+            var headings = hm.GetList();
+
+            foreach (var item in headings)
+            {
+                eventItems.Add(new CalendarEvent()
+                {
+                    id = item.Writer.WriterName + " " +item.Writer.WriterSurName,
+                    start =item.HeadingDate.ToString("s"),
+                    end = item.HeadingDate.ToString("s"),
+                    allDay = true,
+                    color = "blue",
+                    title = item.HeadingName
+                });
+            }
+            return Json(eventItems, JsonRequestBehavior.AllowGet);
         }
 
     }

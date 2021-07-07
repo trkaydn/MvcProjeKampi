@@ -4,6 +4,8 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <br />
 <table class="table table-bordered">
     <tr>
@@ -25,3 +27,13 @@
     }
 </table>
 <a href="/AdminCategory/AddCategory/" class="btn btn-info">Yeni Kategori</a>
+
+@*ÖDEV*@
+@if (TempData["a"] != null)
+{
+    <script>
+        $(document).ready(function () {
+            swal("Tebrikler!", "Kategori başarılı bir şekilde eklendi.", "success");
+        });
+    </script>
+}

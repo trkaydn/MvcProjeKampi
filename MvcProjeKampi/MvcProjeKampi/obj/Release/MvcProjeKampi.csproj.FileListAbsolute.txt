@@ -92,3 +92,7 @@ C:\Users\Tarik Aydin\Desktop\Projects\MvcProjeKampi\MvcProjeKampi\obj\Release\Mv
 C:\Users\Tarik Aydin\Desktop\Projects\MvcProjeKampi\MvcProjeKampi\obj\Release\MvcProjeKampi.csproj.CopyComplete
 C:\Users\Tarik Aydin\Desktop\Projects\MvcProjeKampi\MvcProjeKampi\obj\Release\MvcProjeKampi.dll
 C:\Users\Tarik Aydin\Desktop\Projects\MvcProjeKampi\MvcProjeKampi\obj\Release\MvcProjeKampi.pdb
+C:\Users\Tarik Aydin\Desktop\Projects\MvcProjeKampi\MvcProjeKampi\bin\PagedList.dll
+C:\Users\Tarik Aydin\Desktop\Projects\MvcProjeKampi\MvcProjeKampi\bin\PagedList.Mvc.dll
+C:\Users\Tarik Aydin\Desktop\Projects\MvcProjeKampi\MvcProjeKampi\bin\PagedList.xml
+C:\Users\Tarik Aydin\Desktop\Projects\MvcProjeKampi\MvcProjeKampi\bin\PagedList.Mvc.xml

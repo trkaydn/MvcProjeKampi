@@ -81,7 +81,7 @@ namespace MvcProjeKampi.Controllers
         {
             FormsAuthentication.SignOut();
             Session.Abandon();
-            return RedirectToAction("Headings", "Default");
+            return RedirectToAction("HomePage", "Home");
         }
 
         //TEST İÇİN HASHLEME VE ÇÖZME (Mimariye taşındı))

@@ -1,0 +1,25 @@
+﻿@using EntityLayer.Concrete
+@model Talent
+@{
+    ViewBag.Title = "EditTalent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Yeteneği Düzenle</h2>
+
+@using(Html.BeginForm("EditTalent","TalentCard",FormMethod.Post))
+{
+    @Html.Label("Yetenek Adı")
+    @Html.TextBoxFor(x => x.TalentName, "", new { @class="form-control"})
+    <br />
+    @Html.Label("Yetenek Yüzdesi")
+    @Html.TextBoxFor(x=>x.TalentValue,"",new { @class="form-control", type="number"})
+    @Html.HiddenFor(x=>x.TalentID)
+    @Html.HiddenFor(x=>x.AdminName)
+    @Html.HiddenFor(x=>x.AdminPhoto)
+    @Html.HiddenFor(x=>x.AdminTitle)
+    <br />
+    <input type="submit" class="btn btn-success" >
+
+}
+
