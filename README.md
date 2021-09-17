@@ -1,1 +1,1 @@
-![image info](./sertifika.jpg)
+![sertifika](./sertifika.jpg)
