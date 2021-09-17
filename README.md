@@ -1,1 +1,1 @@
-![image info](./MvcProjeKampi/sertifika.jpg)
+![image info](./sertifika.jpg)
